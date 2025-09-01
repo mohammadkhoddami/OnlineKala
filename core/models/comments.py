@@ -1,3 +1,4 @@
+from typing import Iterable
 from django.db import models
 from django.contrib.auth import get_user_model
 
@@ -31,5 +32,4 @@ class Comment(BaseModel):
     
     def __str__(self):
         return f'{self.author.first_name} - {self.author.last_name} write {self.body} and status is: {self.status}'
-    
     

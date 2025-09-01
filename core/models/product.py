@@ -11,4 +11,8 @@ class Product(BaseModel):
     body = models.TextField()
     stash = models.IntegerField()
     active = models.BooleanField(default=True)
-    #pictue 
+    #pictue
+    
+    
+    def __str__(self):
+        return f'{self.title}'

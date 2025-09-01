@@ -1,10 +1,27 @@
-from rest_framework.routers import DefaultRouter
-from api.views import ProductViewSet
+from django.urls import path, include
+from rest_framework_nested import routers
+from api.views import ProductViewSet, CommentViewSet
 
 app_name = 'product'
 
-router = DefaultRouter()
+router = routers.DefaultRouter() #type: ignore
 
-router.register('', ProductViewSet, basename='product')
+router.register('',
+                ProductViewSet,
+                basename='product')
 
-urlpatterns = router.urls
+
+product_router = routers.NestedDefaultRouter(router,
+                                             '',
+                                             lookup='product') #type: ignore
+
+
+product_router.register('comments', CommentViewSet, basename='product_comment')
+
+
+urlpatterns = [
+    path(r'', include(router.urls)),
+    path(r'', include(product_router.urls))
+]
+
+# 127.0.0.1:8000/api/v1/product/1/comment

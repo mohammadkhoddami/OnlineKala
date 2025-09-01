@@ -6,6 +6,9 @@ app_name = 'api'
 urlpatterns = [
     path('category/', include('api.endpoints.category', namespace='category')),
     path('customer/', include('api.endpoints.customer', namespace='customer')),
-    path('product/', include('api.endpoints.product', namespace='product'))
+    path('product/', include('api.endpoints.product', namespace='product')),
+    path('swagger/', include('api.endpoints.swagger')),
+    path('cart/', include('api.endpoints.cart', namespace='cart')),
+    path('order/', include('api.endpoints.order', namespace='order'))
 ]
 
