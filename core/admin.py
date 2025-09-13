@@ -14,7 +14,7 @@ class OrderItemTabular(admin.TabularInline):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['customer', 'status']
+    list_display = ['customer', 'status', 'created']
     inlines = [
         OrderItemTabular
     ]
