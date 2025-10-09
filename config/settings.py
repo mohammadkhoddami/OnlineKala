@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     #3rd party packages
     'debug_toolbar', #Just In Debug
     'rest_framework',
+    'rest_framework_simplejwt',
     
     #local apps
     'core.apps.CoreConfig',
@@ -167,4 +168,7 @@ SPECTACULAR_SETTINGS = {
 REST_FRAMEWORK = {
     
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
 }
