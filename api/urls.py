@@ -9,6 +9,7 @@ urlpatterns = [
     path('product/', include('api.endpoints.product', namespace='product')),
     path('swagger/', include('api.endpoints.swagger')),
     path('cart/', include('api.endpoints.cart', namespace='cart')),
-    path('order/', include('api.endpoints.order', namespace='order'))
+    path('order/', include('api.endpoints.order', namespace='order')),
+    path('auth/', include('api.endpoints.auth', namespace='auth')),
 ]
 
