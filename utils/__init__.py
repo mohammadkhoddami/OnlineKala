@@ -1,1 +1,1 @@
-from redis_utils import generate_otp_code, get_value, set_value, delete_value
+from .redis_utils import generate_otp_code, get_value, set_value, delete_value

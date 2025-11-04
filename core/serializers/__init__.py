@@ -4,3 +4,4 @@ from .product import ProductSerializer
 from .comments import CommentSerializer
 from .cart import CartSerializer, CartItemSerializer, AddCartItemSerializer, UpdateCartItemSerializer
 from .order import OrderSerializer, OrderCreateSerializer
+from .auth import SendOtpSerializer, VerifyOtpSerializer

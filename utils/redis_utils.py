@@ -12,7 +12,7 @@ redis_client = redis.Redis(
 )
 
 def generate_otp_code():
-    return random.randint(1000, 9999)
+    return str(random.randint(1000, 9999))
 
 
 def set_value(key: str, value: str, ttl: int = 180):

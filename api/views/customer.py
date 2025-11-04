@@ -1,6 +1,8 @@
 from rest_framework.generics import (ListCreateAPIView,
                                      RetrieveUpdateDestroyAPIView
                                      )
+
+
 from core.serializers import CustomerSerializer, CustomerCreateSerializer
 from core.models import Customer
 from core.pagination import CustomerPaginator
