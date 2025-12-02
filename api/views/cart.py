@@ -3,6 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.generics import get_object_or_404
+from rest_framework.permissions import IsAdminUser, AllowAny
 
 from core.models import Cart, CartItem
 from core.serializers import (CartSerializer, CartItemSerializer,
@@ -12,6 +13,17 @@ from core.serializers import (CartSerializer, CartItemSerializer,
 #CRUD --> Craete , List
 class CartApiView(APIView):
     serializer_class = CartSerializer
+    # permission_classes = [IsAdminUser]
+    
+    def get_permissions(self):
+        
+        if self.request.method == "POST":
+            permission_classes = [AllowAny]
+        else:
+            permission_classes = [IsAdminUser]
+            
+        return [permission() for permission in permission_classes]
+    
     
     def get(self, request):
         cart = Cart.objects.all()
